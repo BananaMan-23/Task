@@ -1,0 +1,41 @@
+.btns {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #111420;
+  width: 71px;
+  height: 31px;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
+}
+
+.btns__element {
+  margin: 2px 0;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.btns__active {
+  transform: translateX(45px);
+  transition: transform 0.3s ease;
+}
+.btns__inActive {
+  transform: translateX(-0px);
+  transition: transform 0.3s ease;
+}
+
+.btns_active {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: teal;
+  width: 71px;
+  height: 31px;
+  border-radius: 100px;
+  display: flex;
+}

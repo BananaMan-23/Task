@@ -1,0 +1,52 @@
+.mode_container {
+  position: relative;
+  box-sizing: border-box;
+  background-color: #2d3440;
+  border-radius: 20px;
+  width: 360px;
+  height: 50px;
+  margin: 0;
+  padding: 2px 0px;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.element {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #098988;
+  width: 178px;
+  height: 30px;
+  border-radius: 20px;
+  padding: 15px 20px 17px 20px;
+  width: 19px;
+  height: 35px;
+  min-width: 160px;
+  transition: transform 0.3s ease;
+}
+
+.element_right {
+  transform: translateX(55%);
+}
+
+.element_left {
+  transform: translateX(-55%);
+}
+
+.mode_button {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 14.4px;
+  color: #fff;
+  width: 19px;
+  height: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
