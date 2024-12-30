@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header__container {
+  position: relative;
+  margin: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__reset_btns {
+  position: absolute;
+  left: 15px;
+}
+
+.header__title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 30px;
+  align-items: center;
+}
+.header__span {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16.8px;
+  color: #098988;
+  margin-bottom: 20px;
+}

@@ -8,12 +8,12 @@ const modeSwitching = createSlice({
   },
   reducers: {
     clickBuy: (state) => {
-      state.buy = !state.buy;
-      state.sell = !state.sell;
+      state.buy = false;
+      state.sell = true;
     },
     clickSell: (state) => {
-      state.buy = !state.buy;
-      state.sell = !state.sell;
+      state.buy = true;
+      state.sell = false;
     },
   },
 });

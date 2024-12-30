@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   background-color: #111420;
-  width: 71px;
+  width: 51px;
   height: 31px;
   border-radius: 100px;
   border: none;
@@ -21,11 +21,11 @@
 }
 
 .btns__active {
-  transform: translateX(45px);
+  transform: translateX(25px);
   transition: transform 0.3s ease;
 }
 .btns__inActive {
-  transform: translateX(-0px);
+  transform: translateX(0px);
   transition: transform 0.3s ease;
 }
 
@@ -34,7 +34,7 @@
   margin: 0;
   box-sizing: border-box;
   background-color: teal;
-  width: 71px;
+  width: 51px;
   height: 31px;
   border-radius: 100px;
   display: flex;
