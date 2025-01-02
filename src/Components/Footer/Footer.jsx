@@ -14,6 +14,7 @@ import style from "./Footer.module.css";
 function Footer() {
   const dispatch = useDispatch();
   const footerPopupState = useSelector((state) => state.footerPopup);
+  const formData = useSelector((state) => state.form.data);
 
   const initialFooterValues = [
     {
@@ -48,6 +49,10 @@ function Footer() {
     dispatch(closeFooterPopup());
   };
 
+  const handleContinue = () => {
+    console.log(formData);
+  };
+
   return (
     <div className={style.footer__container}>
       {localValue.map((item, index) => (
@@ -80,7 +85,7 @@ function Footer() {
         Amount will be rounded down. Ex.: for a transaction of 1045.85 RUB. you
         will receive 1045 RUB.
       </p>
-      <ButtonContinue>Continue</ButtonContinue>
+      <ButtonContinue onClick={handleContinue}>Continue</ButtonContinue>
     </div>
   );
 }
