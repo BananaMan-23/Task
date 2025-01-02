@@ -51,7 +51,11 @@ function Main() {
   return (
     <div>
       {localValues.map((item, index) => (
-        <ContainerConfig key={index} title={item.title} value={item.value}>
+        <ContainerConfig
+          key={index}
+          title={`${item.title} ${" / "}`}
+          value={item.value}
+        >
           <OpenDropButton onClick={() => handleOpenPopup(item)} />
         </ContainerConfig>
       ))}
@@ -61,7 +65,11 @@ function Main() {
           span={popupState.data.span}
           menuList={popupState.data.options}
           onSelectChange={handleSelectChange}
-          selectedValue={localValues.find(container => container.title === popupState.data.title)?.value}
+          selectedValue={
+            localValues.find(
+              (container) => container.title === popupState.data.title
+            )?.value
+          }
         />
       )}
     </div>

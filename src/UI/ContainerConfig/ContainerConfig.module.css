@@ -19,9 +19,13 @@
   align-items: center;
 }
 
+.container__title {
+  color: #fff;
+}
+
 .container__subtitle {
-    color: #098988;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 18px;
+  color: #098988;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
 }
