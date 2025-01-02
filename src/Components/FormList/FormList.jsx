@@ -1,33 +1,62 @@
 import style from "./FormList.module.css";
+import { useForm, Controller } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setFormData } from "../../Redux/slice/formSlice";
+import FormItem from "../FormItem/FormItem";
 
 function FormList() {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      percentage: "",
+      volume: "",
+      minOrder: "",
+      maxOrder: "",
+    },
+  });
+  const dispatch = useDispatch();
+
   const List = [
     {
       formTitle: "Percentage of market price (%)",
-      oneDescription: "Market price: 98.66 RUB per 1 USDT",
-      twoDescription: "Your price: 0.00 RUB per 1 USDT",
+      name: "percentage",
       placeholder: "Enter amount from 90 to 120 %",
     },
     {
       formTitle: "Volume",
-      oneDescription: "Your balance: 2,547,000,001 USDT - Max",
-      twoDescription: "",
+      name: "volume",
       placeholder: "Enter amount from 10 to 10000 USDT",
     },
     {
       formTitle: "Min amount of order",
-      oneDescription: "",
-      twoDescription: "",
+      name: "minOrder",
       placeholder: "Min. 500 RUB",
     },
     {
-      formTitle: "Min amount of order",
-      oneDescription: "",
-      twoDescription: "",
+      formTitle: "Max amount of order",
+      name: "maxOrder",
       placeholder: "Max. 500 000 RUB",
     },
   ];
-  return <div></div>;
+
+  const onSubmit = (data) => {
+    dispatch(setFormData(data));
+    console.log(data);
+  };
+
+  return (
+    <div className={style.form__container}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {List.map((item, index) => (
+          <Controller
+            key={index}
+            control={control}
+            name={item.name}
+            render={({ field }) => <FormItem {...item} inputProps={field} />}
+          />
+        ))}
+      </form>
+    </div>
+  );
 }
 
 export default FormList;

@@ -1,3 +1,4 @@
+// popupSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const popupSlice = createSlice({
@@ -16,8 +17,9 @@ const popupSlice = createSlice({
       state.data = null;
     },
     updateValue: (state, action) => {
-      if (state.data) {
-        state.data.value = action.payload;
+      const { title, value } = action.payload;
+      if (state.data && state.data.title === title) {
+        state.data.value = value;
       }
     },
   },

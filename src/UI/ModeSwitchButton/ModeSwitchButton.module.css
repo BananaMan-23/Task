@@ -33,11 +33,11 @@
 }
 
 .element_right {
-  transform: translateX(55%);
+  transform: translateX(60%);
 }
 
 .element_left {
-  transform: translateX(-55%);
+  transform: translateX(-60%);
 }
 
 .mode_button {
