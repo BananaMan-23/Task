@@ -22,3 +22,8 @@
   outline: none;
   box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.5);
 }
+
+.error_input {
+  border-color: red;
+  background-color: #ffe6e6;
+}

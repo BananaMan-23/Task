@@ -11,7 +11,7 @@ import ToggleButton from "../../UI/ToggleButton/ToggleButton";
 import ButtonContinue from "../../UI/ButtonContinue/ButtonContinue";
 import style from "./Footer.module.css";
 
-function Footer() {
+function Footer({ onContinue }) {
   const dispatch = useDispatch();
   const footerPopupState = useSelector((state) => state.footerPopup);
   const formData = useSelector((state) => state.form.data);
@@ -50,7 +50,11 @@ function Footer() {
   };
 
   const handleContinue = () => {
-    console.log(formData);
+    if (onContinue) {
+      onContinue(formData); // Передаем formData в функцию onContinue
+    } else {
+      console.log(formData); // Логируем, если onContinue не была передана
+    }
   };
 
   return (

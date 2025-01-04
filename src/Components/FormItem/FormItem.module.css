@@ -23,3 +23,11 @@
   line-height: 14.4px;
   color: #a6a6a6;
 }
+
+.description:last-child {
+  margin-bottom: 15px;
+}
+
+.element_desc {
+  color: #098988;
+}

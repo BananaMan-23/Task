@@ -4,11 +4,13 @@ import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { setFormData } from "../../Redux/slice/formSlice";
 import FormItem from "../FormItem/FormItem";
+import Footer from "../Footer/Footer";
 
 function FormList() {
   const {
     control,
     watch,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -18,13 +20,15 @@ function FormList() {
       maxOrder: "",
     },
   });
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const List = [
     {
       formTitle: "Percentage of market price (%)",
       name: "percentage",
       placeholder: "Enter amount from 90 to 120 %",
+      oneDescription: "Market price: 98.66 RUB per 1 USDT",
+      twoDescription: "Your price: 0.00 RUB per 1 USDT",
       validation: {
         required: "This field is required",
         min: { value: 90, message: "Minimum value is 90%" },
@@ -35,6 +39,8 @@ function FormList() {
       formTitle: "Volume",
       name: "volume",
       placeholder: "Enter amount from 10 to 10000 USDT",
+      oneDescription: "Your balance: 2,547,000,001 USDT",
+      element: " - Max",
       validation: {
         required: "This field is required",
         min: { value: 10, message: "Minimum value is 10 USDT" },
@@ -67,6 +73,10 @@ function FormList() {
     dispatch(setFormData(formValues));
   }, [formValues, dispatch]);
 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className={style.form__container}>
       <form>
@@ -77,18 +87,17 @@ function FormList() {
             name={item.name}
             rules={item.validation}
             render={({ field }) => (
-              <>
-                <FormItem {...item} inputProps={field} />
-                {errors[item.name] && (
-                  <span className={style.error}>
-                    {errors[item.name].message}
-                  </span>
-                )}
-              </>
+              <FormItem
+                {...item}
+                inputProps={{ ...field }}
+                errors={errors[item.name]}
+              />
             )}
           />
         ))}
+        {/* <button type="submit" className={style.submitButton}>Submit</button> */}
       </form>
+      <Footer onContinue={handleSubmit(onSubmit)} />
     </div>
   );
 }
