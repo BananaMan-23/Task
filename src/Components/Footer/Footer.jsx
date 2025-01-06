@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   openFooterPopup,
   closeFooterPopup,
+  setSelectedValue,
 } from "../../Redux/slice/footerPopupSlice";
 import ContainerConfig from "../../UI/ContainerConfig/ContainerConfig";
 import OpenDropButton from "../../UI/OpenDropButton/OpenDropButton";
@@ -15,7 +16,10 @@ function Footer({ onContinue }) {
   const dispatch = useDispatch();
   const footerPopupState = useSelector((state) => state.footerPopup);
   const formData = useSelector((state) => state.form.data);
-
+  const selectedValues = useSelector((state) => state.popup.selectedValues);
+  const FooterselectedValues = useSelector(
+    (state) => state.footerPopup.selectedValues
+  );
   const initialFooterValues = [
     {
       title: "Payment Timeout",
@@ -46,14 +50,19 @@ function Footer({ onContinue }) {
       return container;
     });
     setLocalValue(updatedList);
+    dispatch(
+      setSelectedValue({ title: footerPopupState.data.title, value: newValue })
+    );
     dispatch(closeFooterPopup());
   };
 
   const handleContinue = () => {
     if (onContinue) {
-      onContinue(formData); // Передаем formData в функцию onContinue
+      onContinue(formData);
+      console.log(selectedValues);
+      console.log(FooterselectedValues);
     } else {
-      console.log(formData); // Логируем, если onContinue не была передана
+      console.log(formData);
     }
   };
 

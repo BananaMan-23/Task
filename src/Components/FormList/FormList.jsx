@@ -1,7 +1,7 @@
 import style from "./FormList.module.css";
 import { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFormData } from "../../Redux/slice/formSlice";
 import FormItem from "../FormItem/FormItem";
 import Footer from "../Footer/Footer";

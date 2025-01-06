@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { openPopup, closePopup } from "../../Redux/slice/popupSlice";
+import {
+  openPopup,
+  closePopup,
+  setSelectedValue,
+} from "../../Redux/slice/popupSlice";
 import ContainerConfig from "../../UI/ContainerConfig/ContainerConfig";
 import OpenDropButton from "../../UI/OpenDropButton/OpenDropButton";
 import SelectMenu from "../SelectMenu/SelectMenu";
@@ -38,13 +42,16 @@ function Main() {
   };
 
   const handleSelectChange = (newValue) => {
+    const title = popupState.data.title;
     const updatedList = localValues.map((container) => {
-      if (container.title === popupState.data.title) {
+      if (container.title === title) {
         return { ...container, value: newValue };
       }
       return container;
     });
+
     setLocalValues(updatedList);
+    dispatch(setSelectedValue({ title, value: newValue }));
     dispatch(closePopup());
   };
 
